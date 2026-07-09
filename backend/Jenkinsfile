@@ -15,7 +15,7 @@ podTemplate(
 
         def IMAGE_NAME    = "${DOCKER_REGISTRY}/ecommerce"
         def IMAGE_TAG     = "v${env.BUILD_NUMBER}"
-        def SONAR_HOST    = "http://34.201.205.190:9000"
+        def SONAR_HOST    = "http://3.238.154.243:9000/"
         def SONAR_KEY     = "depi-test-project"
         
         // Ensure this points to your actual backend deployment yaml inside the repo:
