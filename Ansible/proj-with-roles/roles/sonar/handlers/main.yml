@@ -1,17 +1,21 @@
 ---
-# handlers file for Ansible/proj-with-roles/roles/sonar
-- name: restart postgresql
-  ansible.builtin.service:
-    name: "{{ postgresql_service }}"
-    state: restarted
-
-
 - name: reload systemd
   ansible.builtin.systemd:
-    daemon_reload: yes
-
+    daemon_reload: true
 
 - name: restart sonarqube
   ansible.builtin.service:
     name: sonarqube
     state: restarted
+
+- name: restart postgresql
+  ansible.builtin.service:
+    name: postgresql
+    state: restarted
+  failed_when: false
+
+- name: restart postgresql-15
+  ansible.builtin.service:
+    name: postgresql-15
+    state: restarted
+  failed_when: false
