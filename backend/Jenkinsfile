@@ -26,6 +26,17 @@ podTemplate(
                 checkout scm 
             }
 
+            // ==========================================
+            // ADD THIS TEST STAGE
+            // ==========================================
+            stage('Test WebSocket / Exec') {
+                container('node') {
+                    sh 'echo "If you see this, WebSockets work and the node container is alive!"'
+                }
+            }
+            // ==========================================
+
+            
             stage('2. SonarQube Analysis') {
                 container('sonar-scanner') {
                     withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
